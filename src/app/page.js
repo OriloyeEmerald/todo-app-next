@@ -14,9 +14,6 @@ export default function Home() {
     setInputTask(e.target.value)
   }
 
-  // const toggleFunc = () => {
-  //   setToggleState(!toggleState);
-  // }
 
 
 const addTask = () => {
@@ -53,12 +50,12 @@ const completeTask = (id) => {
         <Header 
          inputTask = {inputTask}
          handleInput = {handleInput}
-         addTask = {addTask}
          toggleState = {toggleState}
          setToggleState = {setToggleState}
         />        
         <TasksBar 
          todos={todos}
+         addTask = {addTask}
          deleteTask={deleteTask}
          completeTask={completeTask}
          setTodos={setTodos}

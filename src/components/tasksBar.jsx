@@ -1,7 +1,8 @@
 import { Check, X } from 'phosphor-react';
 import { useState } from "react";
+import TodoBar from './todoBar';
 
-const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState}) => {
+const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, handleInput, inputTask, addTask,}) => {
  
   const [filteredTodos, setFilteredTodos] = useState([]);
 
@@ -33,8 +34,17 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState}) => {
   const tasksToRender = activeFilter === 'all' ? todos : filteredTodos;
   return (
     <>
+    
     <div className='mx-[1.3rem]'>
+      <TodoBar
+      handleInput={handleInput} 
+      inputTask={inputTask}
+      addTask={addTask}
+      toggleState = {toggleState}
+       />
      <div className='w-[89%] h-[60%] sm:w-[92%] lg:w-[96.5%] sm:mt-[.5rem] rounded-[.4rem]  shadow-lg absolute top-[22%] z-30 mt-[1rem]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#cbcbe7'}}>
+     
+      
       {tasksToRender.map((todo) => {
         return <div className='flex items-center justify-around rounded-t-[.4rem] gap-[7rem]  py-[1.1rem] todo-bar rounded-b-none' key={todo.id} style={{borderBottom: toggleState ? '.1rem solid #e3e4f1' : '.1rem solid #393a4b'}}>
             <div className='flex items-center gap-5'>

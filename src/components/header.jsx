@@ -6,7 +6,7 @@ import Image from 'next/image';
  
 import TodoBar from './todoBar';
 
-const Header = ({handleInput, inputTask, addTask, toggleState, setToggleState}) => {
+const Header = ({ toggleState, setToggleState}) => {
 
   const handleToggle = () => {
     setToggleState(!toggleState)
@@ -27,12 +27,6 @@ const Header = ({handleInput, inputTask, addTask, toggleState, setToggleState}) 
       <Image src={toggleState ? moon : sunshine} alt='light mode' className='w- 45 h-35 z-30' onClick={handleToggle}/>
       </div>
 
-      <TodoBar 
-      handleInput={handleInput} 
-      inputTask={inputTask}
-      addTask={addTask}
-      toggleState = {toggleState}
-      />
     </div>
   );
 }
