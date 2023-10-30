@@ -33,7 +33,8 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState}) => {
   const tasksToRender = activeFilter === 'all' ? todos : filteredTodos;
   return (
     <>
-     <div className='w-[87%] h-[50%] sm:w-[92%] lg:w-[96.5%] sm:mt-[.5rem] rounded-[.4rem] mx-[1.3rem] shadow-lg absolute top-[22%] z-30 ' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#cbcbe7'}}>
+    <div className='mx-[1.3rem]'>
+     <div className='w-[88%] h-[60%] sm:w-[92%] lg:w-[96.5%] sm:mt-[.5rem] rounded-[.4rem]  shadow-lg absolute top-[22%] z-30 mt-[1rem]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#cbcbe7'}}>
       {tasksToRender.map((todo) => {
         return <div className='flex items-center justify-around rounded-t-[.4rem] gap-[7rem]  py-[1.1rem] todo-bar rounded-b-none' key={todo.id} style={{borderBottom: toggleState ? '.1rem solid #e3e4f1' : '.1rem solid #393a4b'}}>
             <div className='flex items-center gap-5'>
@@ -56,10 +57,11 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState}) => {
         <p onClick={clearCompleted}>clear completed</p>
       </div>}
     </div>
-    <div className=' rounded-[.3rem] py-[.6rem] px-[.5rem] flex absolute bottom-[15%] items-center justify-center text-center gap-[1rem] mx-[1.35rem] w-[360px] shadow-lg sm:w-[92%] lg:w-[96.5%]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#9495a5' : '#5b5e7e'}}>
+    <div className=' rounded-[.3rem] py-[.6rem] px-[.5rem] flex absolute bottom-[5%] items-center w-[88%] justify-center mx-auto text-center gap-[1rem] shadow-lg sm:w-[92%] lg:w-[96.5%]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#9495a5' : '#5b5e7e'}}>
     <p className={`cursor-pointer ${activeFilter === 'all' ? 'text-[#3acdf7]' : ''}`} onClick={() => filterTasks('all')}>All</p>
     <p className={`cursor-pointer ${activeFilter === 'active' ? 'text-[#3acdf7]' : ''}`} onClick={() => filterTasks('active')}>Active</p>
     <p className={`cursor-pointer ${activeFilter === 'completed' ? 'text-[#3acdf7]' : ''}`} onClick={() => filterTasks('completed')}>Completed</p>
+  </div>
   </div>
     </>
     
