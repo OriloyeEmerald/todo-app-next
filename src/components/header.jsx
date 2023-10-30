@@ -14,7 +14,7 @@ const Header = ({ toggleState, setToggleState}) => {
   return (
     <div className='text-white h-[30vh] py-[1.3rem] relative' style={{
       backgroundSize: 'cover',
-      backgroundPosition: 'center',
+      backgroundPosition: 'right',
       objectFit: 'cover',
       backgroundImage: toggleState ? `url('bitmap.svg')` : `url('bitmap2.png')` }}>
         <div className="w-full h-full absolute top-0 left-0 z-0" style={{

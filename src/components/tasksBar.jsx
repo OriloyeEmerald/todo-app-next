@@ -46,7 +46,7 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, input
        <input type="text" placeholder='Create new todo ...' value={inputTask} className='border-0 focus:outline-0 w-1/2 text-black bg-transparent outline-0' onChange={(e) => setInputTask(e.target.value)} style={{color: toggleState ? '#000' : '#767992'}}/>
      </div>
 
-     <div className='w-[89%] h-[60%] sm:w-[92%] lg:w-[96.5%] sm:mt-[.5rem] rounded-[.4rem]  shadow-lg absolute top-[23%] z-30 mt-[1rem]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#cbcbe7'}}>
+     <div className='w-[89%] h-[60%] sm:w-[92%] lg:w-[96.5%] sm:mt-[.5rem] rounded-[.4rem]  shadow-lg absolute top-[23%] z-30 mt-[1rem] overflow-y-auto' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#cbcbe7'}}>
      
       
       {tasksToRender.map((todo) => {
