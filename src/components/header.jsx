@@ -13,11 +13,13 @@ const Header = ({handleInput, inputTask, addTask, toggleState, setToggleState}) 
     document.body.className = toggleState &&'dark-theme';
   }
   return (
-    <div className='text-white h-[30vh] py-[1.3rem] px-[1.3rem] relative' style={{
+    <div className='text-white h-[25vh] py-[1.3rem] px-[1.3rem] relative' style={{
       backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      objectFit: 'cover',
       backgroundImage: toggleState ? `url('bitmap.svg')` : `url('bitmap2.png')` }}>
         <div className="w-full h-full absolute top-0 left-0 z-0" style={{
-        background: 'linear-gradient(to right, #55ddff, #c058f3)', opacity: 0.5 
+        background: 'linear-gradient(to right, #55ddff, #c058f3)', opacity: 0.7
         }}></div>
       <div className='flex items-center justify-between mt-5'>
       <h1 className='text-[1.3rem] letter-space-[.3rem] z-40'><strong>TODO</strong></h1>
