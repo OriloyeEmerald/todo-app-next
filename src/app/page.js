@@ -10,9 +10,7 @@ export default function Home() {
   const [todos, setTodos] = useState([])
   const [toggleState, setToggleState] = useState(true)
 
-  const handleInput = (e) => {
-    setInputTask(e.target.value)
-  }
+  
 
 
 
@@ -48,11 +46,10 @@ const completeTask = (id) => {
   return (
     <main className={toggleState ? 'bg-[#fafafa]' : 'bg-[#171823]'}>
         <Header 
-         inputTask = {inputTask}
-         handleInput = {handleInput}
          toggleState = {toggleState}
          setToggleState = {setToggleState}
-        />        
+        />   
+
         <TasksBar 
          todos={todos}
          addTask = {addTask}
@@ -60,6 +57,8 @@ const completeTask = (id) => {
          completeTask={completeTask}
          setTodos={setTodos}
          toggleState={toggleState}
+         inputTask={inputTask}
+         setInputTask={setInputTask}
         />
     
     </main>

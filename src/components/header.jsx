@@ -4,7 +4,6 @@ import moon from '../assets/images/Combined Shape.svg'
 import sunshine from '../assets/images/sunshine.svg'
 import Image from 'next/image';
  
-import TodoBar from './todoBar';
 
 const Header = ({ toggleState, setToggleState}) => {
 

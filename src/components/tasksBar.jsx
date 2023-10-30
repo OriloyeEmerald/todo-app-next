@@ -2,8 +2,10 @@ import { Check, X } from 'phosphor-react';
 import { useState } from "react";
 
 
-const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, handleInput, inputTask, addTask,}) => {
- 
+const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, inputTask, addTask, setInputTask}) => {
+
+
+
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   const [activeFilter, setActiveFilter] = useState('all');
@@ -40,7 +42,8 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, handl
      <div className='rounded-[.3rem] py-[.6rem] px-[.2rem] flex gap-5 items-center outline-0 absolute top-[16%] z-50 w-[89%]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#767992'}}>
        <div className='w-5 h-5 rounded-full border-[.1rem] bg-transparent ml-3' onClick={addTask} style={{border: toggleState ? '.1rem solid #ccc' : '.1rem solid #393a4b'}}> 
        </div>
-       <input type="text" placeholder='Create new todo ...' value={inputTask} className='border-0 focus:outline-0 w-1/2 text-black bg-transparent outline-0' onChange={handleInput} style={{color: toggleState ? '#000' : '#767992'}}/>
+       
+       <input type="text" placeholder='Create new todo ...' value={inputTask} className='border-0 focus:outline-0 w-1/2 text-black bg-transparent outline-0' onChange={(e) => setInputTask(e.target.value)} style={{color: toggleState ? '#000' : '#767992'}}/>
      </div>
 
      <div className='w-[89%] h-[60%] sm:w-[92%] lg:w-[96.5%] sm:mt-[.5rem] rounded-[.4rem]  shadow-lg absolute top-[23%] z-30 mt-[1rem]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#cbcbe7'}}>
