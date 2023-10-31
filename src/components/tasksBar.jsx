@@ -61,7 +61,7 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, input
               {todo.completed ? (<Check className='text-white'/>) : ''}
              </div> 
              
-             <p className='whitespace-normal break-words w-25' style={{textDecoration: todo.completed ? 'line-through' : 'none', color: todo.completed ? '#d1d2da' : (toggleState ? '#4d5067' : '#c8cbe7')}}>{todo.taskName}</p>
+             <p className='whitespace-normal break-words w-21' style={{textDecoration: todo.completed ? 'line-through' : 'none', color: todo.completed ? '#d1d2da' : (toggleState ? '#4d5067' : '#c8cbe7')}}>{todo.taskName}</p>
             </div>
             <div>
               <X onClick={() => deleteTask(todo.id)} style={{color: toggleState ? '#ccc' : '#494c6b' }}/>
