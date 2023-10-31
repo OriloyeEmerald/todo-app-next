@@ -55,13 +55,13 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, input
      
       
       {tasksToRender.map((todo) => {
-        return <div className='flex items-center justify-between rounded-t-[.4rem] gap-[.5rem]  py-[1.1rem] todo-bar rounded-b-none' key={todo.id} style={{borderBottom: toggleState ? '.1rem solid #e3e4f1' : '.1rem solid #393a4b'}}>
+        return <div className='flex items-center justify-between rounded-t-[.4rem]  py-[1.1rem] todo-bar rounded-b-none' key={todo.id} style={{borderBottom: toggleState ? '.1rem solid #e3e4f1' : '.1rem solid #393a4b', minWidth: '0'}}>
             <div className='flex items-center gap-3'>
-             <div className='w-5 h-5 rounded-full border-gray-400 border-[.1rem] bg-transparent ml-3'onClick={() => completeTask(todo.id)} style={{background: todo.completed ? 'linear-gradient(to right, #55ddff, #c058f3)' : 'transparent', border: toggleState ? '.1rem solid #ccc' : '.1rem solid #393a4b'}}>
+             <div className=' rounded-full border-gray-400 border-[.1rem] bg-transparent ml-3'onClick={() => completeTask(todo.id)} style={{background: todo.completed ? 'linear-gradient(to right, #55ddff, #c058f3)' : 'transparent', border: toggleState ? '.1rem solid #ccc' : '.1rem solid #393a4b', minWidth: '1.25rem', width: '1.25rem', height: '1.25rem'}}>
               {todo.completed ? (<Check className='text-white'/>) : ''}
              </div> 
              
-             <p className='whitespace-normal break-words w-21' style={{textDecoration: todo.completed ? 'line-through' : 'none', color: todo.completed ? '#d1d2da' : (toggleState ? '#4d5067' : '#c8cbe7')}}>{todo.taskName}</p>
+             <p className='flex-grow whitespace-normal' style={{textDecoration: todo.completed ? 'line-through' : 'none', color: todo.completed ? '#d1d2da' : (toggleState ? '#4d5067' : '#c8cbe7')}}>{todo.taskName}</p>
             </div>
             <div>
               <X onClick={() => deleteTask(todo.id)} style={{color: toggleState ? '#ccc' : '#494c6b' }}/>
