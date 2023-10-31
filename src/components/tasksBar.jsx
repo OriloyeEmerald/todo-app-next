@@ -4,7 +4,12 @@ import { useState } from "react";
 
 const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, inputTask, addTask, setInputTask}) => {
 
-
+   
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && inputTask.trim() !== '') {
+      addTask();
+    }
+  };
 
   const [filteredTodos, setFilteredTodos] = useState([]);
 
@@ -39,11 +44,11 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, input
     
     <div className='mx-[1.3rem]'>
 
-     <div className='rounded-[.3rem] py-[.6rem] px-[.2rem] flex gap-5 items-center outline-0 absolute top-[16%] z-50 w-[89%]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#767992'}}>
+     <div className='rounded-[.3rem] py-[.6rem] px-[.2rem] flex gap-5 items-center outline-0 absolute top-[16%] z-50 w-[89%] lg:w-[96.5%] sm:w-[92%]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#767992'}}>
        <div className='w-5 h-5 rounded-full border-[.1rem] bg-transparent ml-3' onClick={addTask} style={{border: toggleState ? '.1rem solid #ccc' : '.1rem solid #393a4b'}}> 
        </div>
        
-       <input type="text" placeholder='Create new todo ...' value={inputTask} className='border-0 focus:outline-0 w-1/2 text-black bg-transparent outline-0' onChange={(e) => setInputTask(e.target.value)} style={{color: toggleState ? '#000' : '#767992'}}/>
+       <input type="text" placeholder='Create new todo ...' value={inputTask} className='border-0 focus:outline-0 w-1/2 text-black bg-transparent outline-0' onChange={(e) => setInputTask(e.target.value)} onKeyDown={handleKeyDown} style={{color: toggleState ? '#000' : '#767992'}}/>
      </div>
 
      <div className='w-[89%] h-[60%] sm:w-[92%] lg:w-[96.5%] sm:mt-[.5rem] rounded-[.4rem]  shadow-lg absolute top-[23%] z-30 mt-[1rem] overflow-y-auto' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#000' : '#cbcbe7'}}>
@@ -56,7 +61,7 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, input
               {todo.completed ? (<Check className='text-white'/>) : ''}
              </div> 
              
-             <p className='whitespace-normal break-words w-20 ' style={{textDecoration: todo.completed ? 'line-through' : 'none', color: todo.completed ? '#d1d2da' : (toggleState ? '#4d5067' : '#c8cbe7')}}>{todo.taskName}</p>
+             <p className='whitespace-normal break-words w-21' style={{textDecoration: todo.completed ? 'line-through' : 'none', color: todo.completed ? '#d1d2da' : (toggleState ? '#4d5067' : '#c8cbe7')}}>{todo.taskName}</p>
             </div>
             <div>
               <X onClick={() => deleteTask(todo.id)} style={{color: toggleState ? '#ccc' : '#494c6b' }}/>
@@ -71,7 +76,7 @@ const TasksBar = ({todos, deleteTask, completeTask, setTodos, toggleState, input
         <p onClick={clearCompleted}>clear completed</p>
       </div>}
     </div>
-    <div className=' rounded-[.3rem] py-[.6rem] px-[.5rem] flex absolute bottom-[4%] items-center w-[89%] justify-center  text-center gap-[1rem] shadow-lg sm:w-[92%] lg:w-[96.5%]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#9495a5' : '#5b5e7e'}}>
+    <div className=' rounded-[.3rem] py-[.6rem] px-[.5rem] flex absolute bottom-[2%] items-center w-[89%] justify-center  text-center gap-[1rem] shadow-lg sm:w-[92%] lg:w-[96.5%]' style={{background: toggleState ? '#fff' : '#25273d', color: toggleState ? '#9495a5' : '#5b5e7e'}}>
     <p className={`cursor-pointer ${activeFilter === 'all' ? 'text-[#3acdf7]' : ''}`} onClick={() => filterTasks('all')}>All</p>
     <p className={`cursor-pointer ${activeFilter === 'active' ? 'text-[#3acdf7]' : ''}`} onClick={() => filterTasks('active')}>Active</p>
     <p className={`cursor-pointer ${activeFilter === 'completed' ? 'text-[#3acdf7]' : ''}`} onClick={() => filterTasks('completed')}>Completed</p>

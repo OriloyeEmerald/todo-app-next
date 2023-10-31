@@ -21,7 +21,7 @@ const Header = ({ toggleState, setToggleState}) => {
         background: 'linear-gradient(to right, #55ddff, #c058f3)', opacity: 0.7
         }}></div>
       <div className='flex items-center justify-between mt-5 px-[1.3rem]'>
-       <h1 className='text-[1.3rem] letter-space-[.3rem] z-40'><strong>TODO</strong></h1>
+       <h1 className='text-[1.3rem] letter-space-[.3rem] z-40' style={{letterSpacing: '.3rem'}}><strong>TODO</strong></h1>
 
       <Image src={toggleState ? moon : sunshine} alt='light mode' className='w- 45 h-35 z-30' onClick={handleToggle}/>
       </div>
